@@ -1,9 +1,13 @@
 extends CharacterBody2D
 
 const SPEED = 300.0
+const BASE_SPEED = 300.0
+
+var augments: Array[Augment] = []
 
 @export var damage_multiplier: float = 1.0
 @export var fire_rate_multiplier: float = 1.0
+
 
 func _ready():
 	Multiplier.set_damage_multiplier(damage_multiplier)

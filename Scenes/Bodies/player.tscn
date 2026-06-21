@@ -1,6 +1,6 @@
 [gd_scene load_steps=5 format=3 uid="uid://ch4ncbnostm6p"]
 
-[ext_resource type="Script" path="res://Scripts/player.gd" id="1_nqh1q"]
+[ext_resource type="Script" path="res://Scripts/Bodies/player.gd" id="1_nqh1q"]
 [ext_resource type="PackedScene" uid="uid://dk3q7388giq23" path="res://Scenes/Weapons/gun.tscn" id="2_304e7"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_vcnvi"]
@@ -10,6 +10,8 @@ radius = 141.81
 
 [node name="character" type="CharacterBody2D" groups=["Player"]]
 script = ExtResource("1_nqh1q")
+damage_multiplier = null
+fire_rate_multiplier = null
 
 [node name="gun" parent="." instance=ExtResource("2_304e7")]
 
