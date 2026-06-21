@@ -8,12 +8,16 @@
 [sub_resource type="CircleShape2D" id="CircleShape2D_ixy3l"]
 radius = 141.81
 
-[node name="character" type="CharacterBody2D" groups=["Player"]]
+[node name="character" type="CharacterBody2D" node_paths=PackedStringArray("weapons") groups=["Player"]]
 script = ExtResource("1_nqh1q")
-damage_multiplier = null
-fire_rate_multiplier = null
+weapons = [NodePath("gun_1"), NodePath("gun_2")]
 
-[node name="gun" parent="." instance=ExtResource("2_304e7")]
+[node name="gun_1" parent="." instance=ExtResource("2_304e7")]
+damage = 4.0
+
+[node name="gun_2" parent="." instance=ExtResource("2_304e7")]
+fire_rate = 0.2
+damage = 2.0
 
 [node name="Sprite2D" type="Sprite2D" parent="."]
 

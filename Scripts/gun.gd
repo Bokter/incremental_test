@@ -1,4 +1,4 @@
-extends Node2D
+extends Area2D
 
 @export var bullet: PackedScene
 @export var barrels: Array[Node2D] 
