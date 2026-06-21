@@ -1,0 +1,24 @@
+[gd_scene load_steps=4 format=3 uid="uid://cm6sd0jyvchjo"]
+
+[ext_resource type="Script" path="res://Scripts/enemy.gd" id="1_uulo3"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_vcnvi"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_jefop"]
+
+[node name="enemy" type="CharacterBody2D" groups=["Enemies"]]
+script = ExtResource("1_uulo3")
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+shape = SubResource("RectangleShape2D_vcnvi")
+debug_color = Color(0.992379, 0.0818757, 5.77569e-07, 0.42)
+
+[node name="Area2D" type="Area2D" parent="." groups=["Enemies"]]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D"]
+shape = SubResource("RectangleShape2D_jefop")
+debug_color = Color(0.992379, 0.0818757, 5.77569e-07, 0.42)
+
+[connection signal="area_entered" from="Area2D" to="." method="_on_hit"]

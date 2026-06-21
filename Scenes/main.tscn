@@ -1,0 +1,61 @@
+[gd_scene load_steps=4 format=3 uid="uid://dymibrgeq8r87"]
+
+[ext_resource type="PackedScene" uid="uid://ch4ncbnostm6p" path="res://Scenes/player.tscn" id="1_wufbo"]
+[ext_resource type="PackedScene" uid="uid://cm6sd0jyvchjo" path="res://Scenes/enemy.tscn" id="2_h31ou"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_xflds"]
+
+[node name="Main" type="Node2D"]
+scale = Vector2(1.00206, 1)
+
+[node name="character" parent="." instance=ExtResource("1_wufbo")]
+position = Vector2(363, 160)
+damage_multiplier = 5.0
+fire_rate_multiplier = 5.0
+
+[node name="gun" parent="character" index="0"]
+bullet_lifetime = 0.5
+
+[node name="enemy" parent="." instance=ExtResource("2_h31ou")]
+position = Vector2(595, 304)
+
+[node name="1" type="StaticBody2D" parent="."]
+position = Vector2(516.937, 496)
+scale = Vector2(28.1195, 0.578949)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="1"]
+scale = Vector2(3.37179, 1)
+shape = SubResource("RectangleShape2D_xflds")
+debug_color = Color(0.518002, 0.530398, 0.610716, 0.42)
+
+[node name="2" type="StaticBody2D" parent="."]
+position = Vector2(1463.99, 80)
+rotation = 1.5708
+scale = Vector2(12.4318, 0.578949)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="2"]
+scale = Vector2(3.37179, 1)
+shape = SubResource("RectangleShape2D_xflds")
+debug_color = Color(0.518002, 0.530398, 0.610716, 0.42)
+
+[node name="3" type="StaticBody2D" parent="."]
+position = Vector2(-427.121, 80)
+rotation = 1.5708
+scale = Vector2(12.4318, 0.578949)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="3"]
+scale = Vector2(3.37179, 1)
+shape = SubResource("RectangleShape2D_xflds")
+debug_color = Color(0.518002, 0.530398, 0.610716, 0.42)
+
+[node name="4" type="StaticBody2D" parent="."]
+position = Vector2(516.937, -333)
+scale = Vector2(28.1195, 0.578949)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="4"]
+scale = Vector2(3.37179, 1)
+shape = SubResource("RectangleShape2D_xflds")
+debug_color = Color(0.518002, 0.530398, 0.610716, 0.42)
+
+[editable path="character"]
+[editable path="character/gun"]
