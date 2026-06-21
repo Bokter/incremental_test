@@ -1,14 +1,14 @@
 [gd_scene load_steps=4 format=3 uid="uid://dk3q7388giq23"]
 
-[ext_resource type="Script" path="res://Scripts/gun.gd" id="1_kmmh8"]
-[ext_resource type="PackedScene" uid="uid://dsmxlylqxe2g0" path="res://Scenes/bullet.tscn" id="2_f8e1o"]
+[ext_resource type="Script" path="res://Scripts/gun.gd" id="1_pyujh"]
+[ext_resource type="PackedScene" uid="uid://dsmxlylqxe2g0" path="res://Scenes/Bullets/bullet.tscn" id="2_wybsu"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_rqt6k"]
 size = Vector2(28.5185, 10)
 
 [node name="gun" type="Area2D" node_paths=PackedStringArray("barrels")]
-script = ExtResource("1_kmmh8")
-bullet = ExtResource("2_f8e1o")
+script = ExtResource("1_pyujh")
+bullet = ExtResource("2_wybsu")
 barrels = [NodePath("barrel")]
 
 [node name="Sprite2D" type="Sprite2D" parent="."]

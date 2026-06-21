@@ -1,5 +1,5 @@
 [gd_scene load_steps=2 format=3 uid="uid://uq3bh3k8ycx3"]
 
-[ext_resource type="PackedScene" uid="uid://dk3q7388giq23" path="res://Scenes/gun.tscn" id="1_35hjw"]
+[ext_resource type="PackedScene" uid="uid://dk3q7388giq23" path="res://Scenes/Weapons/gun.tscn" id="1_35hjw"]
 
 [node name="gun" instance=ExtResource("1_35hjw")]
