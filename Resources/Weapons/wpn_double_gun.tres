@@ -1,0 +1,15 @@
+[gd_resource type="Resource" script_class="WeaponData" load_steps=4 format=3 uid="uid://de0w5igttwsxo"]
+
+[ext_resource type="PackedScene" uid="uid://dsmxlylqxe2g0" path="res://Scenes/Bullets/bullet.tscn" id="1_flaxp"]
+[ext_resource type="PackedScene" uid="uid://dk3q7388giq23" path="res://Scenes/Weapons/gun.tscn" id="2_n7gko"]
+[ext_resource type="Script" path="res://Scripts/Data/weapon_data.gd" id="3_h6stl"]
+
+[resource]
+script = ExtResource("3_h6stl")
+id = ""
+weapon_name = ""
+damage = 5.0
+fire_rate = 2.0
+bullet_lifetime = 1.0
+bullet = ExtResource("1_flaxp")
+scene = ExtResource("2_n7gko")

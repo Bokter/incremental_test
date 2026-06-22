@@ -1,0 +1,15 @@
+[gd_resource type="Resource" script_class="WeaponData" load_steps=4 format=3 uid="uid://dyjacl43caia1"]
+
+[ext_resource type="PackedScene" uid="uid://dsmxlylqxe2g0" path="res://Scenes/Bullets/bullet.tscn" id="1_2cuq2"]
+[ext_resource type="PackedScene" uid="uid://dk3q7388giq23" path="res://Scenes/Weapons/gun.tscn" id="2_ygica"]
+[ext_resource type="Script" path="res://Scripts/Data/weapon_data.gd" id="3_n3mec"]
+
+[resource]
+script = ExtResource("3_n3mec")
+id = ""
+weapon_name = "Simple Gun"
+damage = 1.0
+fire_rate = 5.0
+bullet_lifetime = 1.0
+bullet = ExtResource("1_2cuq2")
+scene = ExtResource("2_ygica")

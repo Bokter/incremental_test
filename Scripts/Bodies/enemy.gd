@@ -2,7 +2,7 @@ class_name Enemy
 extends CharacterBody2D
 
 @export var speed: float = 100.0
-@export var life: float = 100.0
+@export var life: float = 100000.0
 @export var contact_damage: float = 10.0
 
 func _on_hit(area):
@@ -11,6 +11,7 @@ func _on_hit(area):
 
 func take_damage(amount: float):
 	life -= amount
+	print("Enemy HP: ",life)
 	if life <= 0:
 		die()
 

@@ -1,14 +1,12 @@
-[gd_scene load_steps=4 format=3 uid="uid://dk3q7388giq23"]
+[gd_scene load_steps=3 format=3 uid="uid://dk3q7388giq23"]
 
 [ext_resource type="Script" path="res://Scripts/Weapons/gun.gd" id="1_pyujh"]
-[ext_resource type="Resource" uid="uid://dyjacl43caia1" path="res://Resources/Weapons/wpn_gun.tres" id="2_hcfje"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_rqt6k"]
 size = Vector2(30, 10)
 
 [node name="gun" type="Area2D" node_paths=PackedStringArray("barrels")]
 script = ExtResource("1_pyujh")
-data = ExtResource("2_hcfje")
 barrels = [NodePath("barrel")]
 
 [node name="Sprite2D" type="Sprite2D" parent="."]

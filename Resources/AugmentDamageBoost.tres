@@ -1,9 +1,0 @@
-[gd_resource type="Resource" load_steps=2 format=3 uid="uid://bg61l6xq7sr0d"]
-
-[ext_resource type="Script" path="res://Scripts/Augments/augment_damage_boost.gd" id="1_i8uu1"]
-
-[resource]
-script = ExtResource("1_i8uu1")
-factor = 1.5
-name = ""
-description = ""

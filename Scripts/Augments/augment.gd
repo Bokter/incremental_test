@@ -5,5 +5,8 @@ extends Resource
 @export var description: String = ""
 @export var icon: Texture2D
 
-func apply(stats) -> void:
+func apply(stats) -> void: # stats
 	pass 
+
+func on_acquire(player) -> void:  # efectos de una vez
+	pass

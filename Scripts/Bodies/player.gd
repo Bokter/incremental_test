@@ -5,18 +5,25 @@ const SPEED = 300.0
 @export var fire_rate_multiplier: float = 1.0
 @export var weapons: Array[Area2D]
 
+@export var test_augment: Augment 
+
 var max_weapons = 2
 var current_weapon_index: int = 0
 
 func _ready():
+	Multiplier.player = self
 	update_active_weapon()
-
+	
 func _unhandled_input(event):
 	if event is InputEventMouseButton and event.pressed:
 		if event.button_index == MOUSE_BUTTON_WHEEL_UP:
 			switch_weapon(1)
 		elif event.button_index == MOUSE_BUTTON_WHEEL_DOWN:
 			switch_weapon(-1)
+			
+	if event.is_action_pressed("ui_accept"):  # Enter
+		Multiplier.add_augment(test_augment)
+		print("Doble Arma")
 
 func switch_weapon(direction: int):
 	if weapons.is_empty():
@@ -38,6 +45,13 @@ func add_weapon(new_weapon: Area2D):
 		weapons[current_weapon_index] = new_weapon
 	
 	update_active_weapon()
+
+func add_passive_weapon(scene: PackedScene):
+	var w = scene.instantiate()
+	add_child(w)
+	w.visible = true
+	w.set_process(true)   
+	
 
 func _physics_process(_delta):
 	var direction_x = Input.get_axis("left", "right")

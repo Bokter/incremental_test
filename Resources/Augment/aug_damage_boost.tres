@@ -1,0 +1,9 @@
+[gd_resource type="Resource" script_class="AugmentDamageBoost" load_steps=2 format=3 uid="uid://bg61l6xq7sr0d"]
+
+[ext_resource type="Script" path="res://Scripts/Augments/aug_damage_boost.gd" id="1_61uqr"]
+
+[resource]
+script = ExtResource("1_61uqr")
+factor = 1.5
+name = "+1.5% Damage"
+description = "More Damage"
