@@ -3,7 +3,7 @@ extends Area2D
 @export var bullet: PackedScene
 @export var barrels: Array[Node2D] 
 
-@export var fire_rate: float = 0.3
+@export var fire_rate: float = 1
 
 @export var can_shoot: bool = true
 @export var bullet_lifetime: float = 1

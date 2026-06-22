@@ -4,7 +4,7 @@
 [ext_resource type="PackedScene" uid="uid://dsmxlylqxe2g0" path="res://Scenes/Bullets/bullet.tscn" id="2_wybsu"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_rqt6k"]
-size = Vector2(28.5185, 10)
+size = Vector2(30, 10)
 
 [node name="gun" type="Area2D" node_paths=PackedStringArray("barrels")]
 script = ExtResource("1_pyujh")

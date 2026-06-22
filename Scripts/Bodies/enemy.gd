@@ -4,7 +4,7 @@ extends CharacterBody2D
 
 func _on_hit(area):
 	
-	if area.is_in_group("Bullets"):
+	if area.is_in_group("Bullets") || area.is_in_group("Slashes"):
 		life -= area.damage
 	
-	print("Vida actual: ",life)
+		print("Vida actual: ",life)

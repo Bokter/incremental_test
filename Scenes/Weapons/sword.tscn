@@ -1,0 +1,26 @@
+[gd_scene load_steps=4 format=3 uid="uid://ca3ho0jrgqugd"]
+
+[ext_resource type="Script" path="res://Scripts/sword.gd" id="1_g5yjo"]
+[ext_resource type="PackedScene" uid="uid://bg4goa5bwehr4" path="res://Scenes/Bullets/slash.tscn" id="2_3ii32"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_rqt6k"]
+size = Vector2(87.7778, 10)
+
+[node name="sword" type="Area2D" groups=["Swords"]]
+script = ExtResource("1_g5yjo")
+slash = ExtResource("2_3ii32")
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+
+[node name="sword_collision" type="CollisionShape2D" parent="."]
+position = Vector2(36.6, 0)
+scale = Vector2(1.08, 1)
+shape = SubResource("RectangleShape2D_rqt6k")
+debug_color = Color(0.930217, 3.19588e-05, 0.657648, 0.42)
+
+[node name="sword_hitbox" type="Node2D" parent="."]
+position = Vector2(52, 0)
+
+[node name="Timer" type="Timer" parent="."]
+
+[connection signal="timeout" from="Timer" to="." method="_attack_cooldown"]

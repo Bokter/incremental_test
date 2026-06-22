@@ -32,6 +32,8 @@ folder_colors={
 Enemies=""
 Bullets=""
 Player=""
+Swords=""
+Slashes=""
 
 [input]
 

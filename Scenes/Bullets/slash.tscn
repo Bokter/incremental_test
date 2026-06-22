@@ -1,0 +1,18 @@
+[gd_scene load_steps=3 format=3 uid="uid://bg4goa5bwehr4"]
+
+[ext_resource type="Script" path="res://Scripts/slash.gd" id="1_ebmb8"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_v43r8"]
+size = Vector2(65, 100)
+
+[node name="slash" type="Area2D" groups=["Slashes"]]
+script = ExtResource("1_ebmb8")
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+shape = SubResource("RectangleShape2D_v43r8")
+
+[node name="Timer" type="Timer" parent="."]
+
+[connection signal="timeout" from="Timer" to="." method="_on_timer_timeout"]
