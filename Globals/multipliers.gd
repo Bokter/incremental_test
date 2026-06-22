@@ -3,9 +3,21 @@ extends Node
 var damage_multiplier: float = 1.0
 var fire_rate_multiplier: float = 1.0
 
-func set_damage_multiplier(new_damage_multiplier):
-	damage_multiplier = new_damage_multiplier
+# Lista de aumentos que el jugador tiene activos
+var active_augments: Array[Augment] = []
 
-func set_fire_rate_multiplier(new_fire_rate_multiplier):
-	fire_rate_multiplier = new_fire_rate_multiplier
+func add_augment(aug: Augment):
+	active_augments.append(aug)
+	recalc_stats()
+
+func remove_augment(aug: Augment):
+	active_augments.erase(aug)
+	recalc_stats()
+
+func recalc_stats():
+	damage_multiplier = 1.0
+	fire_rate_multiplier = 1.0
 	
+	# Aplicar todos los aumentos encima
+	for aug in active_augments:
+		aug.apply(self)

@@ -1,7 +1,6 @@
-[gd_scene load_steps=5 format=3 uid="uid://dymibrgeq8r87"]
+[gd_scene load_steps=4 format=3 uid="uid://dymibrgeq8r87"]
 
 [ext_resource type="PackedScene" uid="uid://ch4ncbnostm6p" path="res://Scenes/Bodies/player.tscn" id="1_wufbo"]
-[ext_resource type="PackedScene" uid="uid://ca3ho0jrgqugd" path="res://Scenes/Weapons/sword.tscn" id="2_f26yx"]
 [ext_resource type="PackedScene" uid="uid://cm6sd0jyvchjo" path="res://Scenes/Bodies/enemy.tscn" id="2_h31ou"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_xflds"]
@@ -13,9 +12,7 @@ scale = Vector2(1.00206, 1)
 position = Vector2(363, 160)
 damage_multiplier = 5.0
 fire_rate_multiplier = 5.0
-weapons = [NodePath("gun_1"), NodePath("sword")]
-
-[node name="sword" parent="character" instance=ExtResource("2_f26yx")]
+weapons = [NodePath("gun_1")]
 
 [node name="enemy" parent="." instance=ExtResource("2_h31ou")]
 position = Vector2(595, 304)

@@ -1,4 +1,7 @@
-class_name Augment
-extends Resource
+class_name AugmentDamageBoost
+extends Augment
 
-# Implement Damage Boost
+@export var factor: float = 1.5
+
+func apply(stats) -> void:
+	stats.damage_multiplier *= factor

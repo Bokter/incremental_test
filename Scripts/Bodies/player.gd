@@ -9,8 +9,6 @@ var max_weapons = 2
 var current_weapon_index: int = 0
 
 func _ready():
-	Multiplier.set_damage_multiplier(damage_multiplier)
-	Multiplier.set_fire_rate_multiplier(fire_rate_multiplier)
 	update_active_weapon()
 
 func _unhandled_input(event):
