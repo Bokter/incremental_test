@@ -6,10 +6,10 @@
 [resource]
 script = ExtResource("1_7jckr")
 bullet = ExtResource("1_flaxp")
-bullet_lifetime = 1.0
-shot_speed = 400.0
+bullet_lifetime = 5.0
+shot_speed = 800.0
 bullets = 500
 id = ""
 weapon_name = "Simple Double Gun"
 damage = 5.0
-fire_rate = 1.0
+fire_rate = 0.5

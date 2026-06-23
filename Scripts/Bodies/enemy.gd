@@ -11,7 +11,7 @@ func _on_hit(area):
 
 func take_damage(amount: float):
 	life -= amount
-	print("Enemy HP: ",life)
+	#print("Enemy HP: ",life)
 	if life <= 0:
 		die()
 

@@ -23,7 +23,7 @@ func shoot():
 	#print("Tiempo del fire_rate: ", data.fire_rate)
 	#print("Shot Speed: ", data.shot_speed * Multiplier.shot_speed_multiplier)
 	current_bullets -= 1
-	print("Balas restantes: ", current_bullets)
+	#print("Balas restantes: ", current_bullets)
 	can_shoot = false
 	timer.wait_time = data.fire_rate / Multiplier.fire_rate_multiplier
 	timer.start()

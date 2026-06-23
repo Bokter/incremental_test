@@ -17,7 +17,7 @@ func attack():
 	is_attacking = true
 	
 	var instance = data.slash.instantiate()
-	print("Daño: ", data.damage * Multiplier.damage_multiplier)
+	
 	instance.damage = data.damage * Multiplier.damage_multiplier
 	instance.lifetime = data.slash_duration
 	
