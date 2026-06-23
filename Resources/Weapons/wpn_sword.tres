@@ -1,15 +1,16 @@
-[gd_resource type="Resource" script_class="WeaponData" load_steps=4 format=3 uid="uid://dhysnu30derfk"]
+[gd_resource type="Resource" script_class="MeleeData" load_steps=3 format=3 uid="uid://dhysnu30derfk"]
 
+[ext_resource type="Script" path="res://Scripts/Data/melee_data.gd" id="1_00lbl"]
 [ext_resource type="PackedScene" uid="uid://bg4goa5bwehr4" path="res://Scenes/Bullets/slash.tscn" id="1_8q4rb"]
-[ext_resource type="PackedScene" uid="uid://ca3ho0jrgqugd" path="res://Scenes/Weapons/sword.tscn" id="2_g7uic"]
-[ext_resource type="Script" path="res://Scripts/Data/weapon_data.gd" id="3_cv5pb"]
 
 [resource]
-script = ExtResource("3_cv5pb")
+script = ExtResource("1_00lbl")
+slash = ExtResource("1_8q4rb")
+slash_duration = 0.2
+range = 50.0
+knockback = 0.0
+sword_hitbox = Vector2(0, 0)
 id = ""
 weapon_name = "Simple Sword"
 damage = 5.0
 fire_rate = 1.0
-bullet_lifetime = 1.0
-bullet = ExtResource("1_8q4rb")
-scene = ExtResource("2_g7uic")

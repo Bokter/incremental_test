@@ -1,9 +1,6 @@
 extends Area2D
 
-@export var slash: PackedScene
-@export var fire_rate: float = 1.0
-@export var slash_duration: float = 0.2  
-@export var damage: float = 1.0
+@export var data: MeleeData 
 @onready var timer: Timer = $Timer
 @onready var sword_hitbox: Node2D = $sword_hitbox
 
@@ -19,15 +16,16 @@ func attack():
 
 	is_attacking = true
 	
-	var instance = slash.instantiate()
-	instance.damage = damage * Multiplier.damage_multiplier
-	instance.lifetime = slash_duration
+	var instance = data.slash.instantiate()
+	print("Daño: ", data.damage * Multiplier.damage_multiplier)
+	instance.damage = data.damage * Multiplier.damage_multiplier
+	instance.lifetime = data.slash_duration
 	
 	sword_hitbox.add_child.call_deferred(instance)
 	instance.position = Vector2.ZERO
 	instance.rotation = 0
 	
-	timer.wait_time = fire_rate / Multiplier.fire_rate_multiplier
+	timer.wait_time = data.fire_rate / Multiplier.fire_rate_multiplier
 	timer.start()
 
 func _attack_cooldown():

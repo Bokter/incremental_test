@@ -2,7 +2,6 @@ extends Area2D
 
 @export var speed: float = 800.0
 @export var lifetime: float = 1.0
-
 @export var turn_speed: float = 3.5   # qué tan brusco gira 
 
 var damage: float
