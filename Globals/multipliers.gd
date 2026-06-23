@@ -2,8 +2,11 @@ extends Node
 
 var damage_multiplier: float = 1.0
 var fire_rate_multiplier: float = 1.0
+var shot_speed_multiplier: float = 1.5
 
 var player: Node2D = null
+
+var homing: bool = false
 
 # Lista de aumentos que el jugador tiene activos
 var active_augments: Array[Augment] = []
@@ -20,6 +23,8 @@ func remove_augment(aug: Augment):
 func recalc_stats():
 	damage_multiplier = 1.0
 	fire_rate_multiplier = 1.0
+	shot_speed_multiplier = 1.0
+	homing = false
 	
 	# Aplicar todos los aumentos encima
 	for aug in active_augments:

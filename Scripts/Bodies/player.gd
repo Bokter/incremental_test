@@ -30,13 +30,21 @@ func _unhandled_input(event):
 		elif event.button_index == MOUSE_BUTTON_WHEEL_DOWN:
 			switch_weapon(-1)
 			
-	if event.is_action_pressed("ui_accept"):  # Enter
+	if event.is_action_pressed("ui_accept"):  
 		Multiplier.add_augment(test_augment[0])
-		print("Double Weapons!")
+		print("+1.5 Shot Speed")
 		
-	if event.is_action_pressed("cheat"):  # click der
+	if event.is_action_pressed("cheat"):  
 		Multiplier.add_augment(test_augment[1])
 		print("+1.5 Fire Rate")
+	
+	if event.is_action_pressed("cheat2"):  
+		Multiplier.add_augment(test_augment[2])
+		print("Homing Bullets")
+		
+	if event.is_action_pressed("cheat3"):  
+		Multiplier.add_augment(test_augment[3])
+		print("More Weapons")
 	
 func switch_weapon(direction: int):
 	if weapons.is_empty():

@@ -1,0 +1,8 @@
+[gd_resource type="Resource" script_class="AugmentHoming" load_steps=2 format=3 uid="uid://coydn3wjfjur0"]
+
+[ext_resource type="Script" path="res://Scripts/Augments/aug_homing_bullets.gd" id="1_qpkf3"]
+
+[resource]
+script = ExtResource("1_qpkf3")
+name = "Never Gonna Fail Again"
+description = "Homing Bullets!"

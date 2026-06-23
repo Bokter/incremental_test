@@ -1,4 +1,4 @@
-class_name AugmentFireRate
+class_name AugmentFireRateBoost
 extends Augment
 
 @export var factor: float = 1
