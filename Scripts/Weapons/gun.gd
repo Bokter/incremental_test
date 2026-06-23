@@ -14,10 +14,17 @@ func _process(_delta):
 	pass
 	
 func shoot():
+	
+	print("Tiempo del fire_rate: ", data.fire_rate)
+	
 	can_shoot = false
 	timer.wait_time = data.fire_rate / Multiplier.fire_rate_multiplier
+	
+	
 	timer.start()
+	
 	for i in barrels:
+		
 		var instance = data.bullet.instantiate()
 		instance.lifetime = data.bullet_lifetime
 		instance.rotation = global_rotation

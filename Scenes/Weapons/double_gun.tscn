@@ -1,5 +1,7 @@
-[gd_scene load_steps=2 format=3 uid="uid://uq3bh3k8ycx3"]
+[gd_scene load_steps=3 format=3 uid="uid://uq3bh3k8ycx3"]
 
 [ext_resource type="PackedScene" uid="uid://dk3q7388giq23" path="res://Scenes/Weapons/gun.tscn" id="1_35hjw"]
+[ext_resource type="Resource" uid="uid://de0w5igttwsxo" path="res://Resources/Weapons/wpn_double_gun.tres" id="2_atxe2"]
 
 [node name="gun" instance=ExtResource("1_35hjw")]
+data = ExtResource("2_atxe2")

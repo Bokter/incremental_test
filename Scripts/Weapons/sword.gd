@@ -1,7 +1,7 @@
 extends Area2D
 
 @export var slash: PackedScene
-@export var fire_rate: float = 2.0
+@export var fire_rate: float = 1.0
 @export var slash_duration: float = 0.2  
 @export var damage: float = 1.0
 @onready var timer: Timer = $Timer
@@ -13,9 +13,10 @@ func _process(_delta):
 	look_at(get_global_mouse_position())
 	
 	if Input.is_action_pressed("trigger") && !is_attacking:
-		shoot()
+		attack()
 
-func shoot():
+func attack():
+
 	is_attacking = true
 	
 	var instance = slash.instantiate()

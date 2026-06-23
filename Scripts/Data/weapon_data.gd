@@ -7,4 +7,3 @@ extends Resource
 @export var fire_rate: float = 1.0
 @export var bullet_lifetime: float = 1.0
 @export var bullet: PackedScene
-@export var scene: PackedScene

@@ -3,15 +3,24 @@ const SPEED = 300.0
 
 @export var damage_multiplier: float = 1.0
 @export var fire_rate_multiplier: float = 1.0
+@export var starting_weapons: Array[PackedScene]
 @export var weapons: Array[Area2D]
 
-@export var test_augment: Augment 
+@export var test_augment: Array[Augment] = []
 
 var max_weapons = 2
 var current_weapon_index: int = 0
 
+@export var orbit_radius: float = 50.0
+var orbit_weapons: Array[Node2D] = []
+
+
 func _ready():
 	Multiplier.player = self
+	for scene in starting_weapons:
+		var w = scene.instantiate()
+		add_child(w)
+		weapons.append(w)
 	update_active_weapon()
 	
 func _unhandled_input(event):
@@ -22,9 +31,13 @@ func _unhandled_input(event):
 			switch_weapon(-1)
 			
 	if event.is_action_pressed("ui_accept"):  # Enter
-		Multiplier.add_augment(test_augment)
-		print("Doble Arma")
-
+		Multiplier.add_augment(test_augment[0])
+		print("Double Weapons!")
+		
+	if event.is_action_pressed("cheat"):  # click der
+		Multiplier.add_augment(test_augment[1])
+		print("+1.5 Fire Rate")
+	
 func switch_weapon(direction: int):
 	if weapons.is_empty():
 		return
@@ -50,7 +63,15 @@ func add_passive_weapon(scene: PackedScene):
 	var w = scene.instantiate()
 	add_child(w)
 	w.visible = true
-	w.set_process(true)   
+	w.set_process(true)
+	orbit_weapons.append(w)
+	arrange_orbit()
+
+func arrange_orbit():
+	var count = orbit_weapons.size()
+	for i in count:
+		var angle = TAU * i / count
+		orbit_weapons[i].position = Vector2(orbit_radius, 0).rotated(angle)  
 	
 
 func _physics_process(_delta):
