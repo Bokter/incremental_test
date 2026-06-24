@@ -28,6 +28,7 @@ func _ready():
 		var w = scene.instantiate()
 		add_child(w)
 		weapons.append(w)
+		
 	update_active_weapon()
 	
 func _unhandled_input(event):
@@ -108,7 +109,6 @@ func _physics_process(_delta):
 	move_and_slide()
 
 func take_damage(amount: float):
-	print("vida: ", health)
 	if invulnerable:
 		return                # ignora el golpe durante i-frames
 	health -= amount
@@ -118,7 +118,6 @@ func take_damage(amount: float):
 	_start_iframes()
 
 func _start_iframes():
-	print("inicia i-frame")
 	invulnerable = true
 	# parpadeo opcional para feedback visual
 	await get_tree().create_timer(invuln_time).timeout
@@ -126,5 +125,3 @@ func _start_iframes():
 		
 func die():
 	print("Game Over")
-	queue_free()
-	
