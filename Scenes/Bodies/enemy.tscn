@@ -5,8 +5,10 @@
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_vcnvi"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_jefop"]
+size = Vector2(25, 25)
 
 [node name="enemy" type="CharacterBody2D" groups=["Enemies"]]
+collision_layer = 4
 script = ExtResource("1_uulo3")
 
 [node name="Sprite2D" type="Sprite2D" parent="."]
@@ -22,3 +24,5 @@ shape = SubResource("RectangleShape2D_jefop")
 debug_color = Color(0.992379, 0.0818757, 5.77569e-07, 0.42)
 
 [connection signal="area_entered" from="Area2D" to="." method="_on_hit"]
+[connection signal="body_entered" from="Area2D" to="." method="_on_body_entered"]
+[connection signal="body_exited" from="Area2D" to="." method="_on_body_exited"]

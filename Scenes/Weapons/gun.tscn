@@ -7,6 +7,7 @@
 size = Vector2(30, 10)
 
 [node name="gun" type="Area2D" node_paths=PackedStringArray("barrels")]
+collision_layer = 2
 script = ExtResource("1_pyujh")
 data = ExtResource("2_hcfje")
 barrels = [NodePath("barrel")]

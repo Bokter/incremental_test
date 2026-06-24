@@ -1,10 +1,8 @@
-[gd_resource type="Resource" script_class="AugmentExtraWeapon" load_steps=3 format=3 uid="uid://bf8ayno5bha6h"]
+[gd_resource type="Resource" script_class="AugmentExtraWeapon" load_steps=2 format=3 uid="uid://bf8ayno5bha6h"]
 
 [ext_resource type="Script" path="res://Scripts/Augments/aug_double_weapon.gd" id="1_gujys"]
-[ext_resource type="PackedScene" uid="uid://dk3q7388giq23" path="res://Scenes/Weapons/gun.tscn" id="2_4snk7"]
 
 [resource]
 script = ExtResource("1_gujys")
-weapon_scene = ExtResource("2_4snk7")
 name = ""
 description = ""

@@ -1,7 +1,5 @@
 class_name AugmentExtraWeapon
 extends Augment
 
-@export var weapon_scene: PackedScene
-
 func on_acquire(player) -> void:
-	player.add_passive_weapon(weapon_scene)
+	player.add_passive_weapon(player.get_current_weapon())

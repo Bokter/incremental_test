@@ -18,14 +18,14 @@ func attack():
 	
 	var instance = data.slash.instantiate()
 	
-	instance.damage = data.damage * Multiplier.damage_multiplier
+	instance.damage = data.damage * GameState.damage_multiplier
 	instance.lifetime = data.slash_duration
 	
 	sword_hitbox.add_child.call_deferred(instance)
 	instance.position = Vector2.ZERO
 	instance.rotation = 0
 	
-	timer.wait_time = data.fire_rate / Multiplier.fire_rate_multiplier
+	timer.wait_time = data.fire_rate / GameState.fire_rate_multiplier
 	timer.start()
 
 func _attack_cooldown():

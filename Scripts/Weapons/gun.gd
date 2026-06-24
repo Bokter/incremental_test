@@ -21,11 +21,11 @@ func _process(_delta):
 func shoot():
 	
 	#print("Tiempo del fire_rate: ", data.fire_rate)
-	#print("Shot Speed: ", data.shot_speed * Multiplier.shot_speed_multiplier)
+	#print("Shot Speed: ", data.shot_speed * GameState.shot_speed_multiplier)
 	current_bullets -= 1
 	#print("Balas restantes: ", current_bullets)
 	can_shoot = false
-	timer.wait_time = data.fire_rate / Multiplier.fire_rate_multiplier
+	timer.wait_time = data.fire_rate / GameState.fire_rate_multiplier
 	timer.start()
 	
 	for i in barrels:
@@ -36,9 +36,9 @@ func shoot():
 		instance.rotation = global_rotation
 		instance.global_position = i.global_position
 		
-		instance.homing = Multiplier.homing
-		instance.speed = data.shot_speed * Multiplier.shot_speed_multiplier
-		instance.damage = data.damage * Multiplier.damage_multiplier
+		instance.homing = GameState.homing
+		instance.speed = data.shot_speed * GameState.shot_speed_multiplier
+		instance.damage = data.damage * GameState.damage_multiplier
 		
 		get_tree().current_scene.add_child.call_deferred(instance)
 

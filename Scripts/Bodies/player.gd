@@ -14,9 +14,16 @@ var current_weapon_index: int = 0
 @export var orbit_radius: float = 50.0
 var orbit_weapons: Array[Node2D] = []
 
+@export var max_health: float = 2.0
+var health: float
+
+@export var invuln_time: float = 0.8
+var invulnerable: bool = false
 
 func _ready():
-	Multiplier.player = self
+	health = max_health
+	
+	GameState.player = self
 	for scene in starting_weapons:
 		var w = scene.instantiate()
 		add_child(w)
@@ -31,19 +38,19 @@ func _unhandled_input(event):
 			switch_weapon(-1)
 			
 	if event.is_action_pressed("ui_accept"):  
-		Multiplier.add_augment(test_augment[0])
+		GameState.add_augment(test_augment[0])
 		print("+1.5 Shot Speed")
 		
 	if event.is_action_pressed("cheat"):  
-		Multiplier.add_augment(test_augment[1])
+		GameState.add_augment(test_augment[1])
 		print("+1.5 Fire Rate")
 	
 	if event.is_action_pressed("cheat2"):  
-		Multiplier.add_augment(test_augment[2])
+		GameState.add_augment(test_augment[2])
 		print("Homing Bullets")
 		
 	if event.is_action_pressed("cheat3"):  
-		Multiplier.add_augment(test_augment[3])
+		GameState.add_augment(test_augment[3])
 		print("More Weapons")
 	
 func switch_weapon(direction: int):
@@ -75,13 +82,15 @@ func add_passive_weapon(scene: PackedScene):
 	orbit_weapons.append(w)
 	arrange_orbit()
 
+func get_current_weapon() -> PackedScene:
+	return load(weapons[current_weapon_index].scene_file_path)
+
 func arrange_orbit():
 	var count = orbit_weapons.size()
 	for i in count:
 		var angle = TAU * i / count
 		orbit_weapons[i].position = Vector2(orbit_radius, 0).rotated(angle)  
 	
-
 func _physics_process(_delta):
 	var direction_x = Input.get_axis("left", "right")
 	var direction_y = Input.get_axis("up", "down")
@@ -97,3 +106,25 @@ func _physics_process(_delta):
 		velocity.y = move_toward(velocity.y, 0, SPEED)
 		
 	move_and_slide()
+
+func take_damage(amount: float):
+	print("vida: ", health)
+	if invulnerable:
+		return                # ignora el golpe durante i-frames
+	health -= amount
+	if health <= 0:
+		die()
+		return
+	_start_iframes()
+
+func _start_iframes():
+	print("inicia i-frame")
+	invulnerable = true
+	# parpadeo opcional para feedback visual
+	await get_tree().create_timer(invuln_time).timeout
+	invulnerable = false
+		
+func die():
+	print("Game Over")
+	queue_free()
+	
