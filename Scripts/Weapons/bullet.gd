@@ -6,6 +6,7 @@ extends Area2D
 
 var damage: float
 var homing: bool = false
+var bounce: bool = false
 
 func _ready():
 	$Timer.wait_time = lifetime
@@ -34,5 +35,8 @@ func get_nearest_enemy() -> Node2D:
 	return nearest
 
 func _on_body_entered(body):
+	print("?")
+	print("cuerpo: ", body)
 	if body.is_in_group("Enemies"):
+		print("??")
 		queue_free()

@@ -1,0 +1,17 @@
+[gd_scene load_steps=2 format=3 uid="uid://dvk4d5q16qowi"]
+
+[ext_resource type="PackedScene" uid="uid://xxddf6roiwwg" path="res://Scenes/Rooms/room.tscn" id="1_ebsr2"]
+
+[node name="Room2" instance=ExtResource("1_ebsr2")]
+
+[node name="spawn_1" parent="Spawners" index="0"]
+position = Vector2(467, 304)
+
+[node name="spawn_2" parent="Spawners" index="1"]
+position = Vector2(-613, 333)
+
+[node name="spawn_3" parent="Spawners" index="2"]
+position = Vector2(-128, -362)
+
+[node name="spawn_4" parent="Spawners" index="3"]
+position = Vector2(658, -423)

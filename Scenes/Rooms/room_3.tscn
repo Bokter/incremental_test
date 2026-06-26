@@ -1,0 +1,11 @@
+[gd_scene load_steps=2 format=3 uid="uid://dxpjin4rmgbmk"]
+
+[ext_resource type="PackedScene" uid="uid://xxddf6roiwwg" path="res://Scenes/Rooms/room.tscn" id="1_uml1j"]
+
+[node name="Room3" instance=ExtResource("1_uml1j")]
+
+[node name="spawn_1" parent="Spawners" index="0"]
+position = Vector2(-373, 93)
+
+[node name="spawn_4" parent="Spawners" index="3"]
+position = Vector2(-373, -95)

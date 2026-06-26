@@ -6,6 +6,7 @@
 size = Vector2(65, 100)
 
 [node name="slash" type="Area2D" groups=["Slashes"]]
+collision_mask = 4
 script = ExtResource("1_ebmb8")
 
 [node name="Sprite2D" type="Sprite2D" parent="."]

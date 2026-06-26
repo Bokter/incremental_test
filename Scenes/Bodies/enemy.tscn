@@ -10,6 +10,7 @@ size = Vector2(25, 25)
 [node name="enemy" type="CharacterBody2D" groups=["Enemies"]]
 collision_layer = 4
 script = ExtResource("1_uulo3")
+life = 100.0
 
 [node name="Sprite2D" type="Sprite2D" parent="."]
 

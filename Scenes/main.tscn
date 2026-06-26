@@ -1,19 +1,26 @@
-[gd_scene load_steps=11 format=3 uid="uid://dymibrgeq8r87"]
+[gd_scene load_steps=14 format=3 uid="uid://dymibrgeq8r87"]
 
+[ext_resource type="Script" path="res://Scripts/game_manager.gd" id="1_s2qhs"]
 [ext_resource type="PackedScene" uid="uid://ch4ncbnostm6p" path="res://Scenes/Bodies/player.tscn" id="1_wufbo"]
-[ext_resource type="PackedScene" uid="uid://cm6sd0jyvchjo" path="res://Scenes/Bodies/enemy.tscn" id="2_h31ou"]
 [ext_resource type="PackedScene" uid="uid://ca3ho0jrgqugd" path="res://Scenes/Weapons/sword.tscn" id="2_i4c6w"]
+[ext_resource type="PackedScene" uid="uid://xxddf6roiwwg" path="res://Scenes/Rooms/room.tscn" id="2_lwsbk"]
 [ext_resource type="Resource" uid="uid://bf8ayno5bha6h" path="res://Resources/Augment/aug_double_weapon.tres" id="2_q48i6"]
 [ext_resource type="Resource" uid="uid://dyk282o1jk4er" path="res://Resources/Augment/aug_fire_rate.tres" id="2_usm6c"]
 [ext_resource type="PackedScene" uid="uid://uq3bh3k8ycx3" path="res://Scenes/Weapons/double_gun.tscn" id="3_8e48o"]
+[ext_resource type="PackedScene" uid="uid://dvk4d5q16qowi" path="res://Scenes/Rooms/room_2.tscn" id="3_yl4s0"]
 [ext_resource type="Script" path="res://Scripts/Augments/augment.gd" id="4_26i12"]
+[ext_resource type="PackedScene" uid="uid://dxpjin4rmgbmk" path="res://Scenes/Rooms/room_3.tscn" id="4_57qy5"]
 [ext_resource type="Resource" uid="uid://oa6o7hou60mu" path="res://Resources/Augment/aug_shot_speed.tres" id="5_2r3f4"]
 [ext_resource type="Resource" uid="uid://coydn3wjfjur0" path="res://Resources/Augment/aug_homing_bullets.tres" id="7_exm30"]
 
-[sub_resource type="RectangleShape2D" id="RectangleShape2D_xflds"]
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_mnv4c"]
 
 [node name="Main" type="Node2D"]
 scale = Vector2(1.00206, 1)
+
+[node name="GameManager" type="Node2D" parent="."]
+script = ExtResource("1_s2qhs")
+rooms = Array[PackedScene]([ExtResource("2_lwsbk"), ExtResource("3_yl4s0"), ExtResource("4_57qy5")])
 
 [node name="character" parent="." instance=ExtResource("1_wufbo")]
 position = Vector2(363, 160)
@@ -22,47 +29,12 @@ fire_rate_multiplier = 5.0
 starting_weapons = Array[PackedScene]([ExtResource("2_i4c6w"), ExtResource("3_8e48o")])
 test_augment = Array[ExtResource("4_26i12")]([ExtResource("5_2r3f4"), ExtResource("2_usm6c"), ExtResource("7_exm30"), ExtResource("2_q48i6")])
 
-[node name="enemy" parent="." instance=ExtResource("2_h31ou")]
-position = Vector2(595, 304)
+[node name="Layout" type="Node2D" parent="."]
+visible = false
 
-[node name="walls" type="Node2D" parent="."]
+[node name="StaticBody2D" type="StaticBody2D" parent="Layout"]
 
-[node name="1" type="StaticBody2D" parent="walls"]
-position = Vector2(516.937, 496)
-scale = Vector2(28.1195, 0.578949)
-
-[node name="CollisionShape2D" type="CollisionShape2D" parent="walls/1"]
-scale = Vector2(3.37179, 1)
-shape = SubResource("RectangleShape2D_xflds")
-debug_color = Color(0.518002, 0.530398, 0.610716, 0.42)
-
-[node name="2" type="StaticBody2D" parent="walls"]
-position = Vector2(1463.99, 80)
-rotation = 1.5708
-scale = Vector2(12.4318, 0.578949)
-
-[node name="CollisionShape2D" type="CollisionShape2D" parent="walls/2"]
-scale = Vector2(3.37179, 1)
-shape = SubResource("RectangleShape2D_xflds")
-debug_color = Color(0.518002, 0.530398, 0.610716, 0.42)
-
-[node name="3" type="StaticBody2D" parent="walls"]
-position = Vector2(-427.121, 80)
-rotation = 1.5708
-scale = Vector2(12.4318, 0.578949)
-
-[node name="CollisionShape2D" type="CollisionShape2D" parent="walls/3"]
-scale = Vector2(3.37179, 1)
-shape = SubResource("RectangleShape2D_xflds")
-debug_color = Color(0.518002, 0.530398, 0.610716, 0.42)
-
-[node name="4" type="StaticBody2D" parent="walls"]
-position = Vector2(516.937, -333)
-scale = Vector2(28.1195, 0.578949)
-
-[node name="CollisionShape2D" type="CollisionShape2D" parent="walls/4"]
-scale = Vector2(3.37179, 1)
-shape = SubResource("RectangleShape2D_xflds")
-debug_color = Color(0.518002, 0.530398, 0.610716, 0.42)
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Layout/StaticBody2D"]
+shape = SubResource("RectangleShape2D_mnv4c")
 
 [editable path="character"]

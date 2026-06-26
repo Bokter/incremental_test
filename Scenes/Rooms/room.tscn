@@ -1,0 +1,55 @@
+[gd_scene load_steps=6 format=3 uid="uid://xxddf6roiwwg"]
+
+[ext_resource type="Script" path="res://Scripts/Room/room.gd" id="1_c58nl"]
+[ext_resource type="PackedScene" uid="uid://cm6sd0jyvchjo" path="res://Scenes/Bodies/enemy.tscn" id="2_8g0ld"]
+[ext_resource type="PackedScene" uid="uid://7jxuh8vi7dtc" path="res://Scenes/Bodies/enemy_buffed.tscn" id="3_4ro6y"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_hljr0"]
+size = Vector2(20, 1000)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_3xwwt"]
+size = Vector2(1500, 20)
+
+[node name="Room" type="Node2D"]
+script = ExtResource("1_c58nl")
+enemies_to_spawn = Array[PackedScene]([ExtResource("2_8g0ld"), ExtResource("2_8g0ld"), ExtResource("3_4ro6y"), ExtResource("3_4ro6y")])
+
+[node name="Walls" type="Node2D" parent="."]
+
+[node name="left" type="StaticBody2D" parent="Walls"]
+position = Vector2(-750, 0)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Walls/left"]
+shape = SubResource("RectangleShape2D_hljr0")
+
+[node name="up" type="StaticBody2D" parent="Walls"]
+position = Vector2(0, -500)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Walls/up"]
+shape = SubResource("RectangleShape2D_3xwwt")
+
+[node name="right" type="StaticBody2D" parent="Walls"]
+position = Vector2(750, 0)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Walls/right"]
+shape = SubResource("RectangleShape2D_hljr0")
+
+[node name="down" type="StaticBody2D" parent="Walls"]
+position = Vector2(0, 500)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Walls/down"]
+shape = SubResource("RectangleShape2D_3xwwt")
+
+[node name="Spawners" type="Node2D" parent="."]
+
+[node name="spawn_1" type="Marker2D" parent="Spawners"]
+position = Vector2(375, 225)
+
+[node name="spawn_2" type="Marker2D" parent="Spawners"]
+position = Vector2(-375, 225)
+
+[node name="spawn_3" type="Marker2D" parent="Spawners"]
+position = Vector2(-375, -225)
+
+[node name="spawn_4" type="Marker2D" parent="Spawners"]
+position = Vector2(375, -225)
